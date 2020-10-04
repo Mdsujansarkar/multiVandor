@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
-
+use DB;
 class ProductController extends Controller
 {
     /**
@@ -14,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = DB::table('products')->select('id','name','description','price','cover_image')->get();
+        return view('frontend.home', [ 'products' => $products ]);
     }
 
     /**

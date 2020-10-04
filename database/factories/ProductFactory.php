@@ -7,6 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Product::class, function (Faker $faker) {
     return [
-        //
+        'name' => $faker->name,
+        'description' => $faker->text(),
+        'price' => $faker->numberBetween(1,50),
     ];
 });
